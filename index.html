@@ -162,6 +162,43 @@
       gap: 6px;
     }
 
+    /* Live Online Users Counter Badge */
+    .live-users-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 10px;
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.15);
+      animation: fadeInScale 0.4s ease;
+    }
+
+    .live-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: liveBlink 1.4s infinite;
+    }
+
+    @keyframes liveBlink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.85); }
+    }
+
+    .live-users-count {
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+
     /* Urgency Ribbon with Countdown */
     .urgency-ribbon {
       background: linear-gradient(90deg, rgba(239, 68, 68, 0.25), rgba(185, 28, 28, 0.35));
@@ -876,6 +913,12 @@
         <span>🎁</span> Free Recharge for Jio, Airtel, Vi (₹349) & BSNL (₹225) <span>🎁</span>
       </p>
 
+      <!-- Live Online Users Counter Badge -->
+      <div class="live-users-pill">
+        <span class="live-pulse-dot"></span>
+        <span><strong id="liveUsersCount" class="live-users-count">1,784</strong> Live Online Users Right Now</span>
+      </div>
+
       <!-- Urgency Ribbon with Countdown -->
       <div class="urgency-ribbon">
         <span>⚡ <strong>Offer Expires In:</strong></span>
@@ -1478,6 +1521,19 @@ Recharge your Jio, Airtel, Vi (₹349) or BSNL (₹225) number completely free:
       }, 1000);
     }
     startCountdown();
+
+    // Live Online Users Counter (Randomized between 1,500 and 2,000 with realistic micro-fluctuations)
+    let currentLiveUsers = Math.floor(Math.random() * (2000 - 1500 + 1)) + 1500;
+    const liveUsersDisplay = document.getElementById('liveUsersCount');
+    if (liveUsersDisplay) {
+      liveUsersDisplay.textContent = currentLiveUsers.toLocaleString('en-US');
+      setInterval(() => {
+        // Natural micro-fluctuation (+/- 1 to 4 users) keeping strictly between 1500 and 2000
+        const delta = Math.floor(Math.random() * 9) - 4;
+        currentLiveUsers = Math.max(1500, Math.min(2000, currentLiveUsers + delta));
+        liveUsersDisplay.textContent = currentLiveUsers.toLocaleString('en-US');
+      }, 3500);
+    }
 
     // Live Claims Ticker Rotation
     const recentNames = [
