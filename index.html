@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Festive Recharge Dhamaka - Free Mobile Recharge Offer</title>
+  <meta name="description" content="Festive Special: 100% Free Mobile Recharge for Jio (₹349), Airtel (₹349), Vi (₹349), and BSNL (₹225)! Enter your name and mobile number to claim now.">
+  
+  <!-- Open Graph / WhatsApp Preview Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="🔥 Festive Dhamaka: Free Mobile Recharge (Jio, Airtel, Vi ₹349 | BSNL ₹225)!">
+  <meta property="og:description" content="Sabhi Jio, Airtel, Vi (₹349) aur BSNL (₹225) users ke liye Festive Special Free Recharge Offer! Abhi apna naam aur number darj karein.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1200&auto=format&fit=crop&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🔥 Festive Dhamaka: Free Mobile Recharge (Jio, Airtel, Vi ₹349 | BSNL ₹225)!">
+  <meta name="twitter:description" content="Sabhi Jio, Airtel, Vi (₹349) aur BSNL (₹225) users ke liye Festive Special Free Recharge Offer!">
+  <meta name="theme-color" content="#0d081e">
+
+  <style>
+    /* ==========================================================================
+       RESET & BASE THEME (FESTIVE DARK MODE WITH GLASSMORPHISM)
+       ========================================================================== */
+    :root {
+      --bg-dark: #0a0614;
+      --card-bg: rgba(26, 17, 48, 0.75);
+      --card-border: rgba(251, 191, 36, 0.25);
+      --gold-primary: #fbbf24;
+      --gold-glow: #f59e0b;
+      --purple-accent: #8b5cf6;
+      --whatsapp-green: #25d366;
+      --whatsapp-dark: #128c7e;
+      --sheet-green: #0f9d58;
+      --text-primary: #ffffff;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --error-color: #ef4444;
+      --success-color: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 10% 15%, rgba(139, 92, 246, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.18) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+        linear-gradient(180deg, #090514 0%, #110926 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 12px 60px 12px;
+      line-height: 1.5;
+    }
+
+    /* Decorative Animated Sparkles Backdrop */
+    .festive-lights {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .light-particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--gold-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px 2px rgba(251, 191, 36, 0.8);
+      animation: floatUp 8s infinite linear;
+      opacity: 0.6;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
+      20% { opacity: 0.9; }
+      80% { opacity: 0.9; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+
+    /* Main Container (Mobile-first app viewport) */
+    .app-container {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Admin Sheet Bar (Owner Sheet Integration Control) */
+    .sheet-admin-bar {
+      margin-top: 10px;
+      margin-bottom: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+    }
+
+    .sheet-status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #cbd5e1;
+    }
+
+    .sheet-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #94a3b8;
+    }
+
+    .sheet-dot.active {
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .sheet-link-btn {
+      color: #34d399;
+      text-decoration: underline;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 11px;
+    }
+
+    .sheet-connect-btn {
+      background: #0f9d58;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Glassmorphism Card Utility */
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.6), 0 0 15px rgba(245, 158, 11, 0.1);
+      padding: 20px 18px;
+      margin-bottom: 18px;
+      transition: all 0.3s ease;
+    }
+
+    /* Header & Hero Section */
+    .header-banner {
+      text-align: center;
+      padding: 10px 0 12px 0;
+    }
+
+    .festive-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(217, 70, 239, 0.25));
+      border: 1px solid rgba(251, 191, 36, 0.5);
+      color: #fef08a;
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+      animation: pulseGlow 2.5s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(245, 158, 11, 0.3); }
+      50% { transform: scale(1.03); box-shadow: 0 0 20px rgba(245, 158, 11, 0.6); }
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 900;
+      line-height: 1.25;
+      margin-top: 10px;
+      background: linear-gradient(135deg, #ffffff 20%, #fde047 60%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 10px rgba(245, 158, 11, 0.2);
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: #e2e8f0;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Urgency Ribbon with Countdown */
+    .urgency-ribbon {
+      background: linear-gradient(90deg, rgba(239, 68, 68, 0.25), rgba(185, 28, 28, 0.35));
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      border-radius: 12px;
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      margin: 12px 0 16px 0;
+      color: #fecaca;
+    }
+
+    .timer-badge {
+      font-family: monospace;
+      font-weight: 800;
+      background: #7f1d1d;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: 1px;
+    }
+
+    /* Supported Operators Badges */
+    .operator-bar {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .op-chip {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 7px 4px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .op-chip.active, .op-chip:hover {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: var(--gold-primary);
+      color: #fde047;
+      transform: translateY(-2px);
+    }
+
+    .op-chip .op-price-tag {
+      font-size: 10px;
+      color: #34d399;
+      font-weight: 800;
+    }
+
+    .op-chip .op-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      display: inline-block;
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .input-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #e2e8f0;
+      text-align: left;
+    }
+
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      background: rgba(15, 10, 30, 0.85);
+      border: 2px solid rgba(251, 191, 36, 0.4);
+      border-radius: 14px;
+      padding: 4px 12px;
+      transition: all 0.25s;
+    }
+
+    .input-wrapper:focus-within {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+    }
+
+    .input-icon-prefix {
+      font-size: 16px;
+      color: #fde047;
+      display: flex;
+      align-items: center;
+      padding-right: 10px;
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .form-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      padding: 10px 10px;
+    }
+
+    .form-input::placeholder {
+      color: #64748b;
+      letter-spacing: 0.3px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .phone-text {
+      font-size: 18px;
+      letter-spacing: 1.5px;
+    }
+
+    .error-msg {
+      color: var(--error-color);
+      font-size: 12px;
+      margin-top: 6px;
+      text-align: left;
+      display: none;
+      font-weight: 600;
+      animation: shake 0.3s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+
+    /* Selected Offer Showcase */
+    .offer-preview-box {
+      margin: 16px 0;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(245, 158, 11, 0.15));
+      border: 1px dashed rgba(251, 191, 36, 0.6);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: left;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .offer-badge {
+      position: absolute;
+      top: -10px;
+      right: 12px;
+      background: #dc2626;
+      color: white;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .offer-plan-title {
+      font-size: 16px;
+      font-weight: 900;
+      color: #fef08a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .offer-plan-features {
+      font-size: 11px;
+      color: #cbd5e1;
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .plan-pill {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Primary Buttons */
+    .btn-main {
+      width: 100%;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+      color: #000000;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-main::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 80%
+      );
+      transform: rotate(30deg);
+      animation: btnShine 3s infinite;
+    }
+
+    @keyframes btnShine {
+      0% { transform: translateX(-100%) rotate(30deg); }
+      40% { transform: translateX(100%) rotate(30deg); }
+      100% { transform: translateX(100%) rotate(30deg); }
+    }
+
+    .btn-main:active {
+      transform: scale(0.97);
+    }
+
+    /* STEP 2 - VIRAL WHATSAPP SHARING CARD */
+    #step2Card {
+      display: none;
+      animation: fadeInScale 0.4s ease forwards;
+    }
+
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: translateY(15px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .success-alert {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .success-alert h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .user-greeting-tag {
+      font-size: 14px;
+      color: #fef08a;
+      font-weight: 800;
+      margin-top: 4px;
+    }
+
+    .user-number-tag {
+      font-size: 12px;
+      color: #e2e8f0;
+      margin-top: 2px;
+      font-weight: 600;
+    }
+
+    .sheet-saved-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(15, 157, 88, 0.25);
+      border: 1px solid rgba(15, 157, 88, 0.5);
+      color: #6ee7b7;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-top: 6px;
+    }
+
+    /* Share Instructions & 5-Chat Rule Alert */
+    .whatsapp-rule-box {
+      background: rgba(37, 211, 102, 0.1);
+      border-left: 4px solid var(--whatsapp-green);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 12px;
+      color: #d1fae5;
+      text-align: left;
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }
+
+    /* Progress Tracking Section */
+    .share-progress-container {
+      margin: 16px 0 18px 0;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .progress-status-text {
+      color: #fde047;
+    }
+
+    .progress-percent-text {
+      color: #34d399;
+      font-family: monospace;
+      font-weight: 800;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 14px;
+      background: rgba(15, 10, 30, 0.9);
+      border-radius: 20px;
+      padding: 2px;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981 0%, #25d366 50%, #f59e0b 100%);
+      border-radius: 20px;
+      transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 0 10px rgba(37, 211, 102, 0.7);
+    }
+
+    .share-steps-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* WhatsApp Button */
+    .btn-whatsapp {
+      width: 100%;
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 14px 18px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .btn-whatsapp:active {
+      transform: scale(0.97);
+    }
+
+    /* STEP 3 - FINAL REWARD CLAIM (MONETAG CTA) */
+    #step3ClaimSection {
+      display: none;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px dashed rgba(251, 191, 36, 0.4);
+      animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+
+    @keyframes bounceIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      70% { transform: scale(1.05); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .unlocked-banner {
+      background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(244, 63, 94, 0.2));
+      border: 1px solid var(--gold-primary);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      margin-bottom: 14px;
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+    }
+
+    .unlocked-title {
+      color: #fde047;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .unlocked-subtitle {
+      font-size: 11px;
+      color: #e2e8f0;
+      margin-top: 2px;
+    }
+
+    /* High Conversion Claim Button */
+    .btn-claim-recharge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: linear-gradient(135deg, #ef4444 0%, #f59e0b 50%, #10b981 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 2.5s ease infinite, heartPulse 1.4s ease-in-out infinite;
+      color: #ffffff;
+      padding: 16px 20px;
+      border-radius: 16px;
+      font-size: 18px;
+      font-weight: 900;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(239, 68, 68, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.5);
+      border: 2px solid #fef08a;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes heartPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); box-shadow: 0 12px 35px rgba(245, 158, 11, 0.7); }
+    }
+
+    .btn-claim-subtext {
+      font-size: 11px;
+      font-weight: 600;
+      opacity: 0.95;
+      margin-top: 2px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Verification Modal / Loader */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(5, 2, 15, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #150d2e;
+      border: 2px solid var(--gold-primary);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 360px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 0 35px rgba(245, 158, 11, 0.4);
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(251, 191, 36, 0.2);
+      border-top-color: var(--gold-primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .modal-step-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fef08a;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Live Proof Ticker (Growth Hacker Element) */
+    .live-ticker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15, 10, 30, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-size: 11px;
+      color: #94a3b8;
+      margin-bottom: 14px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      flex-shrink: 0;
+      animation: blink 1.2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    #tickerText {
+      color: #e2e8f0;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+
+    /* Social Proof Comments Section */
+    .reviews-card {
+      padding: 16px;
+    }
+
+    .reviews-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+    }
+
+    .reviews-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fef08a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .reviews-stats {
+      font-size: 11px;
+      color: #34d399;
+      font-weight: 600;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .comment-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #f59e0b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .comment-content {
+      text-align: left;
+    }
+
+    .comment-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .verified-icon {
+      color: #38bdf8;
+      font-size: 11px;
+    }
+
+    .comment-text {
+      font-size: 11px;
+      color: #cbd5e1;
+      margin-top: 2px;
+    }
+
+    .comment-time {
+      font-size: 10px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    /* Google Sign-In & Settings Modal */
+    .admin-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(6px);
+      z-index: 1050;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .admin-modal-card {
+      background: #140d2a;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      border-radius: 18px;
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .admin-modal-card h3 {
+      font-size: 16px;
+      color: #fef08a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .admin-modal-card p {
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    /* Official Sign In With Google Button Style */
+    .gsi-material-button {
+      background-color: #ffffff;
+      border: 1px solid #747775;
+      border-radius: 8px;
+      box-sizing: border-box;
+      color: #1f1f1f;
+      cursor: pointer;
+      font-family: 'Roboto', arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      height: 44px;
+      letter-spacing: 0.25px;
+      outline: none;
+      overflow: hidden;
+      padding: 0 16px;
+      position: relative;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: background-color .218s, border-color .218s, box-shadow .218s;
+    }
+
+    .gsi-material-button:hover {
+      background-color: #f8fafd;
+      box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    }
+
+    .leads-stats-preview {
+      background: rgba(15, 10, 30, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 12px;
+      font-size: 12px;
+      color: #e2e8f0;
+    }
+
+    /* Footer Trust & Disclaimer */
+    .app-footer {
+      text-align: center;
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 10px;
+    }
+
+    /* Confetti Canvas */
+    #confettiCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Festive Floating Background Particles -->
+  <div class="festive-lights" id="festiveLights"></div>
+
+  <!-- Confetti Canvas for 100% Celebration -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- Admin Google Sheets Status Bar -->
+    <div class="sheet-admin-bar">
+      <div class="sheet-status-indicator">
+        <span class="sheet-dot" id="sheetDot"></span>
+        <span id="sheetStatusText">Google Sheet: Auto-Syncing</span>
+      </div>
+      <div>
+        <button class="sheet-link-btn" id="openSheetBtn" style="display: none;" onclick="openGoogleSheet()">📊 Sheet Kholein ↗</button>
+        <button class="sheet-connect-btn" id="connectSheetBtn" onclick="openAdminModal()">⚙️ Settings</button>
+      </div>
+    </div>
+    
+    <!-- Hero Banner -->
+    <header class="header-banner">
+      <div class="festive-tag">
+        <span>✨</span> DIWALI & FESTIVE SPECIAL 2026 <span>✨</span>
+      </div>
+      <h1 class="hero-title">FREE RECHARGE DHAMAKA</h1>
+      <p class="hero-subtitle">
+        <span>🎁</span> Jio, Airtel, Vi (₹349) & BSNL (₹225) Muft Offer <span>🎁</span>
+      </p>
+
+      <!-- Urgency Ribbon with Countdown -->
+      <div class="urgency-ribbon">
+        <span>⚡ <strong>Offer Samapt Hone Me:</strong></span>
+        <span class="timer-badge" id="countdownTimer">14:59</span>
+      </div>
+
+      <!-- Live Proof Ticker -->
+      <div class="live-ticker">
+        <span class="ticker-dot"></span>
+        <span id="tickerText">Rahul S. (Jio) ne abhi ₹349 recharge claim kiya - 12 sec pehle</span>
+      </div>
+    </header>
+
+    <!-- STEP 1 CARD: NAME & MOBILE NUMBER ENTRY -->
+    <section class="glass-card" id="step1Card">
+      <!-- Operator Selection -->
+      <label class="input-label">Apna SIM Operator Chunein:</label>
+      <div class="operator-bar">
+        <div class="op-chip active" id="chip-Jio" onclick="selectOperator('Jio')">
+          <span class="op-dot"></span>
+          <span>Jio 5G</span>
+          <span class="op-price-tag">₹349</span>
+        </div>
+        <div class="op-chip" id="chip-Airtel" onclick="selectOperator('Airtel')">
+          <span class="op-dot"></span>
+          <span>Airtel</span>
+          <span class="op-price-tag">₹349</span>
+        </div>
+        <div class="op-chip" id="chip-Vi" onclick="selectOperator('Vi')">
+          <span class="op-dot"></span>
+          <span>Vi</span>
+          <span class="op-price-tag">₹349</span>
+        </div>
+        <div class="op-chip" id="chip-BSNL" onclick="selectOperator('BSNL')">
+          <span class="op-dot"></span>
+          <span>BSNL</span>
+          <span class="op-price-tag">₹225</span>
+        </div>
+      </div>
+
+      <!-- Full Name Input -->
+      <div class="form-group">
+        <label class="input-label" for="userName">Apna Poora Naam (Full Name) Darj Karein:</label>
+        <div class="input-wrapper" id="nameWrapper">
+          <div class="input-icon-prefix">
+            <span>👤</span>
+          </div>
+          <input 
+            type="text" 
+            id="userName" 
+            class="form-input" 
+            placeholder="Jaise: Rahul Sharma" 
+            autocomplete="name"
+          />
+        </div>
+        <div class="error-msg" id="nameError">
+          ⚠️ Kripya apna poora naam darj karein!
+        </div>
+      </div>
+
+      <!-- Mobile Number Input -->
+      <div class="form-group">
+        <label class="input-label" for="mobileNumber">Apna 10-Digit Mobile Number Darj Karein:</label>
+        <div class="input-wrapper" id="phoneWrapper">
+          <div class="input-icon-prefix">
+            <span>🇮🇳 +91</span>
+          </div>
+          <input 
+            type="tel" 
+            id="mobileNumber" 
+            class="form-input phone-text" 
+            placeholder="XXXXXXXXXX" 
+            maxlength="10" 
+            inputmode="numeric" 
+            autocomplete="tel"
+          />
+        </div>
+        <div class="error-msg" id="phoneError">
+          ⚠️ Kripya 10 ankon ka sahi mobile number darj karein!
+        </div>
+      </div>
+
+      <!-- Selected Offer Preview Box (Dynamically Updated) -->
+      <div class="offer-preview-box" id="offerPreviewBox">
+        <div class="offer-badge">100% FREE</div>
+        <div class="offer-plan-title" id="offerPlanTitle">⭐ Jio Festive Plan: ₹349/-</div>
+        <div class="offer-plan-features" id="offerPlanFeatures">
+          <span class="plan-pill">📅 28 Din Validity</span>
+          <span class="plan-pill">🌐 1.5GB/Din Data</span>
+          <span class="plan-pill">📞 Unlimited Calling</span>
+          <span class="plan-pill">🚀 Unlimited 5G Data</span>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="button" class="btn-main" id="checkOfferBtn" onclick="handleOfferCheck()">
+        <span>🚀 Offer Check Karein</span>
+      </button>
+
+      <div style="font-size: 11px; color: #94a3b8; text-align: center; margin-top: 10px;">
+        🔒 100% Surakshit & Saral Process | Data Google Sheet Me Surakshit Hai
+      </div>
+    </section>
+
+    <!-- STEP 2 CARD: VIRAL WHATSAPP SHARING (2 SHARES LOGIC) -->
+    <section class="glass-card" id="step2Card">
+      <!-- Offer Approved Banner with User Name -->
+      <div class="success-alert">
+        <h4>🎉 CONGRATULATIONS! OFFER APPROVED!</h4>
+        <div class="user-greeting-tag" id="userGreetingTag">Badhai Ho!</div>
+        <div class="user-number-tag" id="userNumberTag">+91 98******21 par ₹349 recharge offer uplabdh hai!</div>
+        <div class="sheet-saved-badge">
+          <span>📊</span> Details Saved in Festive Google Sheet
+        </div>
+      </div>
+
+      <!-- Viral WhatsApp Rule Notice -->
+      <div class="whatsapp-rule-box">
+        <strong>⚠️ Mahatvapurna Niyam:</strong><br>
+        WhatsApp ke 5-chat limit ke mutabiq, recharge unlock karne ke liye aapko <strong>kam se kam 2 baar</strong> WhatsApp par share karna hoga (Total 5-10 dosto ya groups ko bhejein).
+      </div>
+
+      <!-- Progress Tracking -->
+      <div class="share-progress-container">
+        <div class="progress-header">
+          <span class="progress-status-text" id="progressStatus">Step 1: Pehla Share Karein</span>
+          <span class="progress-percent-text" id="progressPercent">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="share-steps-indicator">
+          <span>0 Shares</span>
+          <span>1st Share (50%)</span>
+          <span>2nd Share (100% Unlocked)</span>
+        </div>
+      </div>
+
+      <!-- WhatsApp Share Button -->
+      <button type="button" class="btn-whatsapp" id="whatsappShareBtn" onclick="handleWhatsAppShare()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.54c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3"/>
+        </svg>
+        <span id="whatsappBtnText">📲 WhatsApp Par Share Karein</span>
+      </button>
+
+      <!-- STEP 3 - FINAL REWARD MONETIZATION (REVEALED AFTER 2 SHARES) -->
+      <div id="step3ClaimSection">
+        <div class="unlocked-banner">
+          <div class="unlocked-title">🎊 RECHARGE VERIFICATION COMPLETE! 🎊</div>
+          <div class="unlocked-subtitle" id="unlockedSubtitle">Aapka 2/2 WhatsApp Share Safal Raha! Recharge Plan Unlock Ho Gaya Hai.</div>
+        </div>
+
+        <!-- Monetag Direct Link CTA -->
+        <a 
+          href="https://uplcm.com/4/10873893" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn-claim-recharge"
+          id="claimRewardBtn"
+          onclick="handleClaimClick()"
+        >
+          <span>🎉 Abhi Recharge Claim Karein 🎉</span>
+          <span class="btn-claim-subtext">⚡ 1-Click Instant Activation Server</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Social Proof Reviews Section -->
+    <section class="glass-card reviews-card">
+      <div class="reviews-header">
+        <div class="reviews-title">
+          <span>💬</span> Hal Hi Me Claim Kiye Gaye Recharges
+        </div>
+        <div class="reviews-stats">⭐ 4.9/5 (18,400+ Log)</div>
+      </div>
+
+      <div class="comment-item">
+        <div class="comment-avatar">V</div>
+        <div class="comment-content">
+          <div class="comment-name">Vikas Sharma <span class="verified-icon">✔ Verified</span></div>
+          <div class="comment-text">Bhai sach me 2 baar WhatsApp par share kiya aur claim button dabate hi mere Jio number par ₹349 recharge ho gaya! Thank you so much! 🎉</div>
+          <div class="comment-time">2 minute pehle • Jio 5G (₹349)</div>
+        </div>
+      </div>
+
+      <div class="comment-item">
+        <div class="comment-avatar" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">P</div>
+        <div class="comment-content">
+          <div class="comment-name">Priya Patel <span class="verified-icon">✔ Verified</span></div>
+          <div class="comment-text">Mujhe pehle laga fake hoga par sach me 28 days wala ₹349 pack activate ho gaya mere Airtel SIM pe. Sabhi log jaldi claim karlo!</div>
+          <div class="comment-time">5 minute pehle • Airtel (₹349)</div>
+        </div>
+      </div>
+
+      <div class="comment-item">
+        <div class="comment-avatar" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">M</div>
+        <div class="comment-content">
+          <div class="comment-name">Manoj Rathore <span class="verified-icon">✔ Verified</span></div>
+          <div class="comment-text">Mera BSNL ka number tha, ₹225 ka 30 din wala recharge instantly active ho gaya. Zabardast festive dhamaka offer!</div>
+          <div class="comment-time">9 minute pehle • BSNL (₹225)</div>
+        </div>
+      </div>
+
+      <div class="comment-item">
+        <div class="comment-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">A</div>
+        <div class="comment-content">
+          <div class="comment-name">Ankit Verma <span class="verified-icon">✔ Verified</span></div>
+          <div class="comment-text">Vi SIM me ₹349 pack successful message aa gaya. Happy Festive season sabhi ko! 🔥</div>
+          <div class="comment-time">14 minute pehle • Vi (₹349)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Disclaimers -->
+    <footer class="app-footer">
+      <p>© 2026 Festive Recharge Dhamaka Promotional Campaign.</p>
+      <p>Jio, Airtel, Vi: ₹349/- | BSNL: ₹225/-. Ek mobile number par ek hi baar claim kiya ja sakta hai.</p>
+      <div class="footer-links">
+        <a href="#rules">Niyam va Shartein</a>
+        <span>•</span>
+        <a href="#privacy">Privacy Policy</a>
+        <span>•</span>
+        <a href="#support">Sahayata</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Simulated Verification Modal -->
+  <div class="modal-overlay" id="loadingModal">
+    <div class="modal-content">
+      <div class="spinner"></div>
+      <div class="modal-step-text" id="modalStepText">Mobile number check ho raha hai...</div>
+    </div>
+  </div>
+
+  <!-- Admin Google Sheets Connect Modal -->
+  <div class="admin-modal-overlay" id="adminModal">
+    <div class="admin-modal-card">
+      <h3>📊 Google Sheet Settings</h3>
+      <p>Apna Google account connect karein taaki sabhi users ke <strong>Naam</strong>, <strong>Mobile Number</strong>, <strong>Operator</strong> aur <strong>Timestamp</strong> automatic aapke Google Sheet me save hote rahein.</p>
+      
+      <div id="authContainer">
+        <!-- Sign In With Google Button -->
+        <button class="gsi-material-button" id="googleSignInBtn" onclick="handleGoogleSignIn()">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="display: block; width: 20px; height: 20px;">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+          </svg>
+          <span id="gsiButtonText">Sign in with Google</span>
+        </button>
+      </div>
+
+      <div class="leads-stats-preview" id="leadsSummaryBox">
+        <div>📈 <strong>Total Collected Leads:</strong> <span id="leadsCounter">0</span></div>
+        <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Google Sheet: <span id="sheetNameTag">Festive Recharge Leads 2026</span></div>
+      </div>
+
+      <div style="display: flex; gap: 8px; margin-top: 16px;">
+        <button onclick="closeAdminModal()" style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #fff; cursor: pointer;">Bandh Karein</button>
+        <button id="modalSheetLinkBtn" onclick="openGoogleSheet()" style="flex: 1; padding: 10px; border-radius: 8px; border: none; background: #0f9d58; color: #fff; font-weight: 700; cursor: pointer; display: none;">Google Sheet Kholein ↗</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Logic (Module with Firebase Auth and Google Sheets API) -->
+  <script type="module">
+    import { initializeApp } from 'firebase/app';
+    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'firebase/auth';
+    import firebaseConfig from './firebase-applet-config.json';
+
+    // Initialize Firebase Auth
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const provider = new GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/spreadsheets');
+
+    let currentUser = null;
+    let cachedAccessToken = null;
+    let spreadsheetId = localStorage.getItem('festive_spreadsheet_id') || null;
+
+    // Operator Specific Plans Configuration
+    const OPERATOR_PLANS = {
+      'Jio': {
+        name: 'Jio 5G',
+        price: '349',
+        priceFull: '₹349/-',
+        validity: '28 Din Validity',
+        data: '1.5GB/Din Data',
+        calling: 'Unlimited Calling',
+        extra: 'Unlimited 5G Data'
+      },
+      'Airtel': {
+        name: 'Airtel',
+        price: '349',
+        priceFull: '₹349/-',
+        validity: '28 Din Validity',
+        data: '1.5GB/Din Data',
+        calling: 'Unlimited Calling',
+        extra: 'Airtel 5G Plus'
+      },
+      'Vi': {
+        name: 'Vi',
+        price: '349',
+        priceFull: '₹349/-',
+        validity: '28 Din Validity',
+        data: '1.5GB/Din Data',
+        calling: 'Unlimited Calling',
+        extra: 'Binge All Night Data'
+      },
+      'BSNL': {
+        name: 'BSNL',
+        price: '225',
+        priceFull: '₹225/-',
+        validity: '30 Din Validity',
+        data: '2GB/Din Data',
+        calling: 'Unlimited Calling',
+        extra: '100 SMS/Din'
+      }
+    };
+
+    // State Tracking
+    let selectedOperator = 'Jio';
+    let validatedMobileNumber = '';
+    let validatedUserName = '';
+    let shareCount = 0; // Total 2 shares required (0 -> 1 -> 2)
+    const MONETAG_URL = "https://uplcm.com/4/10873893";
+
+    // Initialize Auth Listener
+    onAuthStateChanged(auth, async (user) => {
+      currentUser = user;
+      updateAdminUI();
+      if (user && cachedAccessToken) {
+        if (!spreadsheetId) {
+          await ensureSpreadsheetExists();
+        }
+        await syncPendingLeads();
+      }
+    });
+
+    function updateAdminUI() {
+      const sheetDot = document.getElementById('sheetDot');
+      const sheetStatusText = document.getElementById('sheetStatusText');
+      const openSheetBtn = document.getElementById('openSheetBtn');
+      const modalSheetLinkBtn = document.getElementById('modalSheetLinkBtn');
+      const gsiButtonText = document.getElementById('gsiButtonText');
+      
+      const storedLeads = JSON.parse(localStorage.getItem('festive_recharge_leads') || '[]');
+      document.getElementById('leadsCounter').innerText = storedLeads.length;
+
+      if (currentUser && cachedAccessToken) {
+        sheetDot.classList.add('active');
+        sheetStatusText.innerText = `Google Sheet: Synced (${storedLeads.length} Leads)`;
+        openSheetBtn.style.display = 'inline-block';
+        modalSheetLinkBtn.style.display = 'block';
+        gsiButtonText.innerText = `Connected as ${currentUser.displayName || currentUser.email}`;
+      } else {
+        sheetDot.classList.remove('active');
+        sheetStatusText.innerText = `Google Sheet: Auto-Syncing (${storedLeads.length} Leads)`;
+        if (spreadsheetId) {
+          openSheetBtn.style.display = 'inline-block';
+          modalSheetLinkBtn.style.display = 'block';
+        }
+      }
+    }
+
+    // Google Sign In handler
+    window.handleGoogleSignIn = async function() {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        if (credential?.accessToken) {
+          cachedAccessToken = credential.accessToken;
+          currentUser = result.user;
+          await ensureSpreadsheetExists();
+          await syncPendingLeads();
+          updateAdminUI();
+          alert(`Google Sheets Safalta-purvak connect ho gaya hai! Sheet ID: ${spreadsheetId}`);
+        }
+      } catch (err) {
+        console.error('Google Sign-In Error:', err);
+        alert('Google Sign-in me error: ' + (err.message || 'Please try again.'));
+      }
+    };
+
+    // Ensure Google Spreadsheet exists or create "Festive Recharge Leads 2026"
+    async function ensureSpreadsheetExists() {
+      if (spreadsheetId && cachedAccessToken) {
+        return spreadsheetId;
+      }
+      if (!cachedAccessToken) return null;
+
+      try {
+        const response = await fetch('https://sheets.googleapis.com/v4/spreadsheets', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${cachedAccessToken}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            properties: {
+              title: 'Festive Recharge Leads 2026'
+            },
+            sheets: [
+              {
+                properties: {
+                  title: 'Leads',
+                  gridProperties: { rowCount: 1000, columnCount: 10 }
+                },
+                data: [
+                  {
+                    startRow: 0,
+                    startColumn: 0,
+                    rowData: [
+                      {
+                        values: [
+                          { userEnteredValue: { stringValue: 'Timestamp' } },
+                          { userEnteredValue: { stringValue: 'Full Name' } },
+                          { userEnteredValue: { stringValue: 'Mobile Number' } },
+                          { userEnteredValue: { stringValue: 'SIM Operator' } },
+                          { userEnteredValue: { stringValue: 'Plan Price' } },
+                          { userEnteredValue: { stringValue: 'Status' } },
+                          { userEnteredValue: { stringValue: 'Source URL' } }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          spreadsheetId = data.spreadsheetId;
+          localStorage.setItem('festive_spreadsheet_id', spreadsheetId);
+          console.log('Created Google Sheet with ID:', spreadsheetId);
+          updateAdminUI();
+          return spreadsheetId;
+        } else {
+          const errData = await response.json();
+          console.error('Create Sheet Error:', errData);
+        }
+      } catch (e) {
+        console.error('Failed to create sheet:', e);
+      }
+      return null;
+    }
+
+    // Append lead to Google Sheet & Local Storage
+    async function recordLead(name, mobile, operator, planPrice, status) {
+      const now = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+      const newLead = {
+        timestamp: now,
+        name: name,
+        mobile: mobile,
+        operator: operator,
+        planPrice: planPrice,
+        status: status || 'Offer Checked',
+        url: window.location.href,
+        synced: false
+      };
+
+      // 1. Always save into LocalStorage queue so leads are never lost!
+      const leads = JSON.parse(localStorage.getItem('festive_recharge_leads') || '[]');
+      leads.push(newLead);
+      localStorage.setItem('festive_recharge_leads', JSON.stringify(leads));
+      updateAdminUI();
+
+      // 2. If authenticated with Google, sync directly to Google Sheet
+      if (cachedAccessToken && spreadsheetId) {
+        await appendRowToSheet(newLead);
+      }
+    }
+
+    // Append single row to Google Sheet via REST API
+    async function appendRowToSheet(lead) {
+      if (!cachedAccessToken || !spreadsheetId) return;
+      try {
+        const range = 'Leads!A:G';
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(range)}:append?valueInputOption=USER_ENTERED`;
+        
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${cachedAccessToken}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            range: range,
+            majorDimension: 'ROWS',
+            values: [
+              [lead.timestamp, lead.name, lead.mobile, lead.operator, lead.planPrice, lead.status, lead.url]
+            ]
+          })
+        });
+
+        if (res.ok) {
+          lead.synced = true;
+          console.log('Lead successfully synced to Google Sheet:', lead);
+        }
+      } catch (err) {
+        console.warn('Could not sync to Google Sheet immediately:', err);
+      }
+    }
+
+    // Sync any pending offline leads
+    async function syncPendingLeads() {
+      if (!cachedAccessToken || !spreadsheetId) return;
+      const leads = JSON.parse(localStorage.getItem('festive_recharge_leads') || '[]');
+      const unsynced = leads.filter(l => !l.synced);
+      if (unsynced.length === 0) return;
+
+      const rows = unsynced.map(l => [
+        l.timestamp, l.name, l.mobile, l.operator, l.planPrice, l.status, l.url
+      ]);
+
+      try {
+        const range = 'Leads!A:G';
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(range)}:append?valueInputOption=USER_ENTERED`;
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${cachedAccessToken}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            range: range,
+            majorDimension: 'ROWS',
+            values: rows
+          })
+        });
+        if (res.ok) {
+          leads.forEach(l => l.synced = true);
+          localStorage.setItem('festive_recharge_leads', JSON.stringify(leads));
+          console.log(`Synced ${unsynced.length} pending leads to Google Sheet.`);
+          updateAdminUI();
+        }
+      } catch (e) {
+        console.error('Batch sync error:', e);
+      }
+    }
+
+    // Open Google Sheet in new tab
+    window.openGoogleSheet = function() {
+      if (spreadsheetId) {
+        window.open(`https://docs.google.com/spreadsheets/d/${spreadsheetId}`, '_blank');
+      } else {
+        alert('Google Sheet abhi connected nahi hai. Settings me jakar Sign in karein.');
+      }
+    };
+
+    window.openAdminModal = function() {
+      document.getElementById('adminModal').style.display = 'flex';
+      updateAdminUI();
+    };
+
+    window.closeAdminModal = function() {
+      document.getElementById('adminModal').style.display = 'none';
+    };
+
+    // Operator Selection Function (Dynamically Updates Plan Display)
+    window.selectOperator = function(operatorName) {
+      document.querySelectorAll('.op-chip').forEach(el => el.classList.remove('active'));
+      const activeChip = document.getElementById('chip-' + operatorName);
+      if (activeChip) activeChip.classList.add('active');
+      selectedOperator = operatorName;
+
+      // Update Offer Preview Box
+      const plan = OPERATOR_PLANS[operatorName] || OPERATOR_PLANS['Jio'];
+      document.getElementById('offerPlanTitle').innerText = `⭐ ${plan.name} Festive Plan: ${plan.priceFull}`;
+      
+      const featuresContainer = document.getElementById('offerPlanFeatures');
+      featuresContainer.innerHTML = `
+        <span class="plan-pill">📅 ${plan.validity}</span>
+        <span class="plan-pill">🌐 ${plan.data}</span>
+        <span class="plan-pill">📞 ${plan.calling}</span>
+        <span class="plan-pill">🚀 ${plan.extra}</span>
+      `;
+    };
+
+    // Input Sanitization
+    const nameInput = document.getElementById('userName');
+    const mobileInput = document.getElementById('mobileNumber');
+
+    nameInput.addEventListener('input', function() {
+      if (this.value.trim().length >= 2) {
+        document.getElementById('nameError').style.display = 'none';
+        document.getElementById('nameWrapper').style.borderColor = 'rgba(251, 191, 36, 0.4)';
+      }
+    });
+
+    mobileInput.addEventListener('input', function() {
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+      if (this.value.length === 10) {
+        document.getElementById('phoneError').style.display = 'none';
+        document.getElementById('phoneWrapper').style.borderColor = 'rgba(251, 191, 36, 0.4)';
+      }
+    });
+
+    // STEP 1: Handle Offer Check with Name and Mobile Validation
+    window.handleOfferCheck = async function() {
+      const rawName = nameInput.value.trim();
+      const rawNumber = mobileInput.value.trim();
+      const nameError = document.getElementById('nameError');
+      const phoneError = document.getElementById('phoneError');
+      const nameWrapper = document.getElementById('nameWrapper');
+      const phoneWrapper = document.getElementById('phoneWrapper');
+
+      let hasError = false;
+
+      // Validate Name (at least 2 letters)
+      if (!rawName || rawName.length < 2) {
+        nameError.style.display = 'block';
+        nameWrapper.style.borderColor = 'var(--error-color)';
+        nameInput.focus();
+        hasError = true;
+      } else {
+        nameError.style.display = 'none';
+        nameWrapper.style.borderColor = 'var(--gold-primary)';
+      }
+
+      // Validate Mobile Number: 10 digits and starts with 6, 7, 8, or 9
+      const phoneRegex = /^[6-9]\d{9}$/;
+      if (!phoneRegex.test(rawNumber)) {
+        phoneError.style.display = 'block';
+        phoneWrapper.style.borderColor = 'var(--error-color)';
+        if (!hasError) mobileInput.focus();
+        hasError = true;
+      } else {
+        phoneError.style.display = 'none';
+        phoneWrapper.style.borderColor = 'var(--gold-primary)';
+      }
+
+      if (hasError) return;
+
+      validatedUserName = rawName;
+      validatedMobileNumber = rawNumber;
+
+      const plan = OPERATOR_PLANS[selectedOperator];
+
+      // Add to Google Sheet & Local Database
+      recordLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'Offer Checked & Approved');
+
+      // Show Verification Modal with Steps
+      const modal = document.getElementById('loadingModal');
+      const modalText = document.getElementById('modalStepText');
+      modal.style.display = 'flex';
+
+      const verificationSteps = [
+        `👤 ${validatedUserName} Ji ka mobile number check ho raha hai...`,
+        `📡 +91 ${validatedMobileNumber} (${plan.name}) database se connect ho raha hai...`,
+        `📝 Name aur Mobile Number Google Sheet par add ho raha hai...`,
+        `🎉 ₹${plan.price} (${plan.validity}) Free Recharge Plan Approved!`
+      ];
+
+      let currentStep = 0;
+      modalText.innerText = verificationSteps[0];
+
+      const interval = setInterval(() => {
+        currentStep++;
+        if (currentStep < verificationSteps.length) {
+          modalText.innerText = verificationSteps[currentStep];
+        } else {
+          clearInterval(interval);
+          setTimeout(() => {
+            modal.style.display = 'none';
+            showStep2();
+          }, 600);
+        }
+      }, 650);
+    };
+
+    // Switch to Step 2
+    function showStep2() {
+      document.getElementById('step1Card').style.display = 'none';
+      const step2Card = document.getElementById('step2Card');
+      step2Card.style.display = 'block';
+
+      const plan = OPERATOR_PLANS[selectedOperator];
+
+      // Greet user with their entered name
+      document.getElementById('userGreetingTag').innerText = `Badhai Ho ${validatedUserName} Ji!`;
+      
+      // Mask user number e.g. 98****3210
+      const maskedNumber = validatedMobileNumber.substring(0, 2) + '******' + validatedMobileNumber.substring(8);
+      document.getElementById('userNumberTag').innerText = `+91 ${maskedNumber} (${plan.name}) par ₹${plan.price} Recharge Plan Safal Hua!`;
+      document.getElementById('unlockedSubtitle').innerText = `${validatedUserName} Ji! Aapka 2/2 WhatsApp Share Safal Raha! ₹${plan.price} Recharge Plan Unlock Ho Gaya Hai.`;
+
+      // Scroll to Step 2
+      step2Card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // STEP 2: Viral WhatsApp Sharing (Exactly 2 Shares Logic)
+    window.handleWhatsAppShare = function() {
+      const plan = OPERATOR_PLANS[selectedOperator];
+      const currentUrl = window.location.href;
+
+      // Dynamic viral message with Name and exact operator price
+      const viralMessage = 
+`*🔥 FESTIVE DHAMAKA OFFER 2026 🔥*
+
+Sabhi mobile users ke liye festive season ka sabse bada offer! Mujhe abhi mila *₹${plan.price} ka Free Recharge (${plan.name} - ${plan.validity})*.
+
+Aap bhi apna Jio, Airtel, Vi (₹349) ya BSNL (₹225) number recharge karein bilkul muft:
+👉 ${currentUrl}
+
+⏰ Offer sirf aaj raat 12 baje tak valid hai! Jaldi karein!`;
+
+      const encodedMsg = encodeURIComponent(viralMessage);
+      const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedMsg}`;
+
+      // Open WhatsApp in a new tab / app
+      window.open(whatsappUrl, '_blank');
+
+      // Increment share count (1 click = 50%, 2 clicks = 100%)
+      shareCount++;
+
+      const progressFill = document.getElementById('progressFill');
+      const progressPercent = document.getElementById('progressPercent');
+      const progressStatus = document.getElementById('progressStatus');
+      const whatsappBtnText = document.getElementById('whatsappBtnText');
+
+      if (shareCount === 1) {
+        // Share 1 Completed (50%)
+        progressFill.style.width = '50%';
+        progressPercent.innerText = '50%';
+        progressStatus.innerText = 'Bas 1 Aur Share Baaki Hai!';
+        whatsappBtnText.innerText = '📲 WhatsApp Par Dobara Share Karein (Final Step)';
+        
+        // Update lead status in Google Sheet
+        recordLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'WhatsApp Share 1/2 Done');
+
+        // Encouraging alert reminder for WhatsApp 5-chat forward limit
+        setTimeout(() => {
+          alert(`Bahut acche ${validatedUserName} Ji! WhatsApp ke 5-chat limit ke kaaran, apna ₹${plan.price} recharge activate karne ke liye 1 baar aur share karein!`);
+        }, 1200);
+
+      } else if (shareCount >= 2) {
+        // Share 2 Completed (100% - Offer Unlocked!)
+        progressFill.style.width = '100%';
+        progressPercent.innerText = '100%';
+        progressStatus.innerText = `🎉 100% Complete! ₹${plan.price} Recharge Unlocked!`;
+        progressFill.style.background = '#10b981';
+
+        // Update lead status in Google Sheet
+        recordLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'WhatsApp 2/2 Complete (Unlocked)');
+
+        // Disable or update WhatsApp button
+        const whatsappBtn = document.getElementById('whatsappShareBtn');
+        whatsappBtn.style.opacity = '0.7';
+        whatsappBtnText.innerText = '✅ 2/2 WhatsApp Share Pura Hua';
+
+        // Reveal Step 3 Monetization Button with Celebration
+        setTimeout(() => {
+          revealStep3ClaimButton();
+        }, 600);
+      }
+    };
+
+    // STEP 3: Reveal Monetization Claim CTA & Trigger Confetti
+    function revealStep3ClaimButton() {
+      const step3 = document.getElementById('step3ClaimSection');
+      step3.style.display = 'block';
+      
+      // Trigger festive confetti
+      launchConfetti();
+
+      // Smooth scroll to the claim button
+      step3.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    window.handleClaimClick = function() {
+      const plan = OPERATOR_PLANS[selectedOperator];
+      // Mark lead as Claimed in Google Sheet
+      recordLead(validatedUserName, validatedMobileNumber, plan.name, `₹${plan.price}`, 'Claim Button Clicked (Monetag)');
+      console.log('User claimed recharge via Monetag direct link');
+    };
+
+    // Countdown Timer (14m 59s down)
+    function startCountdown() {
+      let duration = 14 * 60 + 59;
+      const display = document.getElementById('countdownTimer');
+      setInterval(() => {
+        const minutes = Math.floor(duration / 60);
+        const seconds = duration % 60;
+        display.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        if (--duration < 0) {
+          duration = 10 * 60; // reset
+        }
+      }, 1000);
+    }
+    startCountdown();
+
+    // Live Claims Ticker Rotation
+    const recentNames = [
+      { name: "Rahul S.", op: "Jio", plan: "₹349", time: "12 sec pehle" },
+      { name: "Pooja M.", op: "Airtel", plan: "₹349", time: "25 sec pehle" },
+      { name: "Amit K.", op: "Vi", plan: "₹349", time: "38 sec pehle" },
+      { name: "Suresh P.", op: "BSNL", plan: "₹225", time: "44 sec pehle" },
+      { name: "Deepak G.", op: "Jio", plan: "₹349", time: "55 sec pehle" },
+      { name: "Manoj R.", op: "BSNL", plan: "₹225", time: "1 min pehle" },
+      { name: "Sunita D.", op: "Airtel", plan: "₹349", time: "1.5 min pehle" }
+    ];
+    let tickerIndex = 0;
+    setInterval(() => {
+      tickerIndex = (tickerIndex + 1) % recentNames.length;
+      const item = recentNames[tickerIndex];
+      const ticker = document.getElementById('tickerText');
+      ticker.style.opacity = '0';
+      setTimeout(() => {
+        ticker.innerText = `${item.name} (${item.op}) ne abhi ${item.plan} recharge claim kiya - ${item.time}`;
+        ticker.style.opacity = '1';
+      }, 300);
+    }, 4500);
+
+    // Canvas Confetti Effect
+    function launchConfetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const pieces = [];
+      const colors = ['#f59e0b', '#fbbf24', '#25d366', '#ec4899', '#8b5cf6', '#3b82f6'];
+
+      for (let i = 0; i < 90; i++) {
+        pieces.push({
+          x: canvas.width * 0.5,
+          y: canvas.height * 0.6,
+          vx: (Math.random() - 0.5) * 16,
+          vy: (Math.random() - 0.9) * 18,
+          size: Math.random() * 7 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          rotationSpeed: (Math.random() - 0.5) * 8
+        });
+      }
+
+      let frames = 0;
+      function animateConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pieces.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.35; // gravity
+          p.vx *= 0.98;
+          p.rotation += p.rotationSpeed;
+
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+          ctx.restore();
+        });
+
+        frames++;
+        if (frames < 120) {
+          requestAnimationFrame(animateConfetti);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+      animateConfetti();
+    }
+
+    // Initialize Festive Background Lights
+    function createFestiveLights() {
+      const container = document.getElementById('festiveLights');
+      const particleCount = 18;
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'light-particle';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDelay = (Math.random() * 8) + 's';
+        particle.style.animationDuration = (6 + Math.random() * 6) + 's';
+        particle.style.width = (3 + Math.random() * 4) + 'px';
+        particle.style.height = particle.style.width;
+        if (Math.random() > 0.5) {
+          particle.style.background = '#f43f5e';
+          particle.style.boxShadow = '0 0 10px 2px rgba(244, 63, 94, 0.8)';
+        }
+        container.appendChild(particle);
+      }
+    }
+    createFestiveLights();
+  </script>
+</body>
+</html>

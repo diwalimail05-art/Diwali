@@ -1,0 +1,6 @@
+{
+  "name": "Festive Recharge Dhamaka",
+  "description": "Viral festive free mobile recharge campaign (Jio, Airtel, Vi: ₹349 | BSNL: ₹225) with Name & Mobile Google Sheet sync, WhatsApp sharing and direct Monetag reward claim.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
